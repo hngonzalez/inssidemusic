@@ -1,0 +1,69 @@
+<div class="card text-center" style="width: 100%;">
+    <div class="card-body">
+        <div class="divSearch">
+            <input id="search" type="text" placeholder="Buscá tu canción.." (keyup)="getSong()">
+        </div>
+        <div class="divControlsPlayer">
+            <div class="controls">
+            </div>
+        </div>      
+    </div>
+</div>
+
+<div *ngIf="resultados > 0 && !noResultados">
+    <div class="divResults" *ngFor="let song of songsList; let i = index">
+        <button id="infoBtn{{i}}" class="btn"  data-bs-toggle="modal" data-bs-target="#infoSong" (click)="infoSong(song)"><i class="fa fa-info" aria-hidden="true"></i></button>
+        <button class="btn"><i id="playBtn{{i}}" class="fa fa-play" aria-hidden="true" (click)="play(song.preview_url,i)"></i></button>
+        <audio id="audio"></audio>
+        <label >
+            {{song.artists[0].name}} - {{song.name}}
+        </label>
+    </div>
+</div>
+
+
+
+<div *ngIf="noResultados" class="divResults">
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            Error en la búsqueda
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="infoSong" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoSong">Information song</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="divImgDescrip">
+                <img id="infoSongPhoto" src="..." class="img-thumbnail" alt="...">
+                <div id="infoSongDescrip">
+                    <label><b>Song: </b> <span id="name"></span></label>
+                    <label><b>Album: </b> <span id="album"></span></label>
+                    <label><b>Duration: </b> <span id="duration"></span></label>
+                    <label>Name song: </label>
+                    <label>Name song: </label>
+                    <label>Name song: </label>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Sin resultados!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" (click)="closeToast()"></button>
+      </div>
+      <div class="toast-body">
+        Lamentablemente no encontramos tu búsqueda :(
+      </div>
+    </div>
+</div>

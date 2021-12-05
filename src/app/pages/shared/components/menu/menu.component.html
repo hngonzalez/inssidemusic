@@ -1,0 +1,69 @@
+<header>
+  <div *ngIf="userLogged" class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <img src="../../../../../assets/img/logo.png"  width="40" height="40" alt="">
+        </a>
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a href="#" class="nav-link text-white" routerLink='members/inicio'>
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white" routerLink='members/top'>
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
+              Top
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white" routerLink='members/top' (click)="logoutUser()">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+  <div *ngIf="!userLogged" class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <img src="../../../../../assets/img/logo.png"  width="40" height="40" alt="">
+        </a>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="formUserLogin" (ngSubmit)="loginUser()">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="user">
+            <small class="invalid" *ngIf="formUserLogin.get('user')?.errors?.required && formUserLogin.get('user')?.touched">Campo requerido</small>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+            <small class="invalid" *ngIf="formUserLogin.get('password')?.errors?.required && formUserLogin.get('password')?.touched">Campo requerido</small>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="formUserLogin.invalid">Log In</button>
+        </div>
+        
+          
+        
+      </form>
+    </div>
+  </div>
+</div>

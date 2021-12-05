@@ -1,0 +1,44 @@
+.card-body {
+    background-color: #333;
+}
+
+#search {
+    width: 100%;
+    padding: 0.5%;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#search:focus {
+    outline: none;
+}
+
+button {
+    margin: 10px;
+    background-color: rgb(212, 212, 212);
+}
+
+i {
+    font-size: 100%;
+}
+
+.modal-body {
+    
+}
+
+.divImgDescrip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.img-thumbnail {
+    max-width: 50%;
+}
+
+#infoSongDescrip {
+    display: flex;
+    flex-direction: column;
+}
