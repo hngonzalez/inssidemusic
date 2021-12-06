@@ -9,7 +9,7 @@
           <li>
             <a href="#" class="nav-link text-white" routerLink='members/inicio'>
               <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
-              Inicio
+              Search
             </a>
           </li>
           <li>
@@ -59,11 +59,13 @@
             <small class="invalid" *ngIf="formUserLogin.get('password')?.errors?.required && formUserLogin.get('password')?.touched">Campo requerido</small>
           </div>
           <button type="submit" class="btn btn-success" [disabled]="formUserLogin.invalid">Log In</button>
+          <br>
+          <small class="invalid" *ngIf="errorUsuario" >Usuario incorrecto</small>
+          <br>
+          <small>User: admin Pwd: 123456</small>
         </div>
-        
-          
-        
       </form>
     </div>
   </div>
+  
 </div>

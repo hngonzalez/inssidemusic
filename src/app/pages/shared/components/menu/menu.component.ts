@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class MenuComponent implements OnInit {
   userLogged:boolean = false;
   formUserLogin!:FormGroup;
+  errorUsuario:boolean = false;
 
   constructor(private router:Router,
               private fb:FormBuilder,
@@ -35,13 +37,22 @@ export class MenuComponent implements OnInit {
    * Login del usuario donde se guarda su estado logueado y donde se obtiene el token para la API
    */
   loginUser() {
-    localStorage.setItem('userLogged','S');
-    this.userLogged = true;
-    if (!localStorage.getItem('accessTk')) {
-      this.spotifyService.getAccessToken();
+    let newUser = new User;
+    newUser.username = this.formUserLogin.get('user').value;
+    newUser.password = this.formUserLogin.get('password').value;
 
+    if (newUser.username.toLowerCase() == 'admin' && newUser.password == '123456') {
+      localStorage.setItem('userLogged','S');
+      this.userLogged = true;
+      this.errorUsuario = false;
+      if (!localStorage.getItem('accessTk')) {
+        this.spotifyService.getAccessToken();
+
+      }
+      this.router.navigate(['/members/inicio']);
+    } else {
+      this.errorUsuario = true;
     }
-    this.router.navigate(['/members/inicio']);
   }
 
   /**

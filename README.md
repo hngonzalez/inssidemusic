@@ -1,27 +1,25 @@
-# Inssidemusic
+# InssideMusic
+App test realizada para Insside
+# Login
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+Inicio de sesión del usuario localmente:
 
-## Development server
+![Image text](https://i.imgur.com/ykN409p.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Búsqueda principal (Inicio)
 
-## Code scaffolding
+Al iniciar como usuarios, veremos como pantalla principal el Inicio de la App donde dispondremos de una búsqueda de canciones:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Image text](https://i.imgur.com/hAl52cX.png)
 
-## Build
+## Prewiew
+Una vez buscada la canción por el método preferido (nombre, álbum, género), seleccionamos el botón de play:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![Image text](https://i.imgur.com/8dH2utY.png)
 
-## Running unit tests
+## Info del track
+También, seleccionando en la i se desplegará un modal donde obtenemos más información del track:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Image text](https://i.imgur.com/4sNQgve.png)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Image text](https://i.imgur.com/aXR2vvg.png)

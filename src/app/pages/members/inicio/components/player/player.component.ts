@@ -30,7 +30,7 @@ export class PlayerComponent implements OnInit {
       this.spotifyService.getSong(param)
       .subscribe( (data:any) => {
         console.log(data.tracks.items);
-        this.noResultados = false;     
+        this.noResultados = false;
         this.songsList = data.tracks.items;
         this.resultados = this.songsList.length;      
         if (this.resultados == 0) {
