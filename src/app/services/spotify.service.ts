@@ -26,6 +26,7 @@ export class SpotifyService {
     const data = await result.json();
     console.log(data.access_token);
     localStorage.setItem("accessTk", data.access_token);
+    console.log(localStorage)
   }
 
   /**
@@ -40,4 +41,26 @@ export class SpotifyService {
 
     return  this.http.get(`https://api.spotify.com/v1/search?q=${param}&type=track,album&include_external=audio`, { headers })
   }
+
+  /**
+   * Busca top de artistas por país
+   * @param param
+   */
+  getArtist(param:string) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('accessTk')
+    })
+
+    return  this.http.get(`https://api.spotify.com/v1/search?q=${param}&type=artist`, { headers })
+  }
+
+  getTops(idArtist:string, country:string) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('accessTk')
+    })
+
+    return  this.http.get(`https://api.spotify.com/v1/artists/${idArtist}/top-tracks?market=${country}`, { headers })
+  }
+
+
 }

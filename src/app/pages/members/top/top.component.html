@@ -1,1 +1,49 @@
-<p>top works!</p>
+<div class="card text-center" style="width: 100%;">
+    <div class="card-body">
+        <div class="divSearch">
+            <input id="searchArtista" type="text" placeholder="Buscá tu artista">
+            <input id="searchCodigo" type="text" placeholder="Codigo país">
+        </div>
+        <div class="divControlsPlayer">
+            <br>
+            <div class="controls">
+                <button type="button" class="btn btn-dark" (click)="getTops();">Search</button>
+            </div>
+        </div>      
+        <div *ngIf="resultados > 0 && !noResultados">
+            <br>
+            <div class="divResults" *ngFor="let song of songsList; let i = index">
+                <h2 *ngIf="i == 0">#1 {{song.name}} - {{song.album.name}}</h2>
+                <h3 *ngIf="i == 1">#2 {{song.name}} - {{song.album.name}}</h3>
+                <h4 *ngIf="i == 2">#3 {{song.name}} - {{song.album.name}}</h4>
+                <h6 *ngIf="i >= 3">{{song.name}} - {{song.album.name}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div *ngIf="noResultados" class="divResults">
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            Error en la búsqueda
+        </div>
+    </div>
+</div>
+
+
+<!--div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Sin resultados!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" (click)="closeToast()"></button>
+      </div>
+      <div class="toast-body">
+        Lamentablemente no encontramos tu búsqueda :(
+      </div>
+    </div>
+</div-->

@@ -6,8 +6,8 @@ import { TopComponent } from './top/top.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent, canActivate: [LoggedUserGuard] },
-  { path: 'top', component: TopComponent },
-  { path: '**', pathMatch: 'full', redirectTo:'home' }
+  { path: 'top', component: TopComponent, canActivate: [LoggedUserGuard] },
+  { path: '**', pathMatch: 'full', redirectTo:'inicio', canActivate: [LoggedUserGuard] }
 ];
 
 @NgModule({

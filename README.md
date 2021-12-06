@@ -6,7 +6,7 @@ Inicio de sesión del usuario localmente:
 
 ![Image text](https://i.imgur.com/ykN409p.png)
 
-# Búsqueda principal (Inicio)
+# Búsqueda principal (SEARCH)
 
 Al iniciar como usuarios, veremos como pantalla principal el Inicio de la App donde dispondremos de una búsqueda de canciones:
 
@@ -23,3 +23,8 @@ También, seleccionando en la i se desplegará un modal donde obtenemos más inf
 ![Image text](https://i.imgur.com/4sNQgve.png)
 
 ![Image text](https://i.imgur.com/aXR2vvg.png)
+
+# Top artista (TOP)
+Mediante los inputs de búsqueda, colocamos al artista, el código del país y obtendremos el top de canciones de dicho país
+
+![Image text](https://i.imgur.com/AbrosCM.png)

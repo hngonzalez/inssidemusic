@@ -89,12 +89,16 @@ export class PlayerComponent implements OnInit {
     let cover = <HTMLImageElement>document.getElementById('infoSongPhoto');
     let duration = <HTMLSpanElement>document.getElementById('duration');
     let name = <HTMLSpanElement>document.getElementById('name');
+    let artist = <HTMLSpanElement>document.getElementById('artist');
+    let released = <HTMLSpanElement>document.getElementById('realeased');
     let album = <HTMLSpanElement>document.getElementById('album');
     let minutes = new Date(song.duration_ms);
 
     cover.src = song.album.images[0].url;
     duration.textContent = `${minutes.getMinutes()}:${minutes.getSeconds()}`;
     name.textContent = song.name;
+    artist.textContent = song.artists[0].name;
+    released.textContent = song.album.release_date;
     album.textContent = song.album.name;
   }
 
